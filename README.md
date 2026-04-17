@@ -28,12 +28,30 @@ An emergency push button allows soldiers to instantly send alerts when assistanc
 ---
 
 ## 🏗️ System Architecture
-[Sensors] → [ESP32] → [HC-12] ))))) ((((( [HC-12] → [ESP32] → [Base Station]
-↓
-[GPS]
-↓
-[LCD]
 
+### Transmitter Unit (Soldier Side)
+LM35 Temperature Sensor  
+HW827 Heart Rate Sensor  
+GPS Module (NEO-6M)  
+Push Button  
+↓  
+ESP32  
+↓  
+HC-12 Wireless Module  
+↓  
+Wireless Transmission  
+
+### Receiver Unit (Base Station)
+Wireless Transmission  
+↓  
+HC-12 Wireless Module  
+↓  
+ESP32  
+↓  
+Serial Monitor / Display  
+
+### Overall Flow
+LM35 + HW827 + GPS + Button → ESP32 → HC-12 → HC-12 → ESP32 → Base Station
 ---
 
 ## 🔩 Components
